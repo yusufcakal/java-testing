@@ -23,15 +23,15 @@ public enum SellerCenterLabel {
                 .orElseThrow(SellerCenterLabelNotFoundException::new);
     }
 
-    public boolean isSellerCenterLabelWorstSeller(){
+    public boolean isSellerCenterLabelWorstSeller() {
         return SellerCenterLabel.WORST_SELLER.equals(this);
     }
 
-    public boolean isSellerCenterLabelAverageSeller(){
+    public boolean isSellerCenterLabelAverageSeller() {
         return SellerCenterLabel.AVERAGE_SELLER.equals(this);
     }
 
-    public boolean isSellerCenterLabelBestSeller(){
+    public boolean isSellerCenterLabelBestSeller() {
         return SellerCenterLabel.BEST_SELLER.equals(this);
     }
 

@@ -7,15 +7,15 @@ public enum SellerLabel {
     SELLER_5,
     SELLER_20;
 
-    public boolean isSellerLabelNotNewSeller(){
+    public boolean isSellerLabelNotNewSeller() {
         return SellerLabel.NEW_SELLER != this;
     }
 
-    public boolean isSellerLabelOne(){
+    public boolean isSellerLabelOne() {
         return SellerLabel.SELLER_1 == this;
     }
 
-    public boolean isSellerLabelTwenty(){
+    public boolean isSellerLabelTwenty() {
         return SellerLabel.SELLER_20 == this;
     }
 
