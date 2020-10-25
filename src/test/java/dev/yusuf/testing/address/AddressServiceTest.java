@@ -1,5 +1,6 @@
 package dev.yusuf.testing.address;
 
+import dev.yusuf.testing.address.exception.AddressUpdateException;
 import dev.yusuf.testing.address.message.model.Address;
 import dev.yusuf.testing.address.message.model.Notification;
 import dev.yusuf.testing.address.message.request.AddressUpdateRequest;
@@ -20,8 +21,7 @@ import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AddressServiceTest {
@@ -79,5 +79,22 @@ public class AddressServiceTest {
 
         assertThat(notification.getMemberId(), equalTo(2L));
         assertThat(notification.getMessage(), equalTo("Your address has been updated"));
+    }
+
+    @Test(expected = AddressUpdateException.class)
+    public void shouldNotUpdateAddressAndDoNotSendNotificationWhenAddressIdIsWrong() {
+        AddressUpdateRequest addressUpdateRequest = AddressUpdateRequestBuilder.anAddressUpdateRequestBuilder()
+                .id(1L)
+                .build();
+
+        when(addressRepository.findById(1L)).thenReturn(Optional.empty());
+
+        try {
+            addressService.update(addressUpdateRequest);
+        } catch (AddressUpdateException ex) {
+            verify(addressRepository).findById(1L);
+
+            throw ex;
+        }
     }
 }

@@ -1,4 +1,4 @@
-package dev.yusuf.testing.sellercenter.service;
+package dev.yusuf.testing.sellercenter;
 
 import dev.yusuf.testing.builder.SellerBuilder;
 import dev.yusuf.testing.sellercenter.label.SellerCenterLabel;

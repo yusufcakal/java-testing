@@ -30,7 +30,7 @@ public class AddressService {
     private Address buildAddressFor(AddressUpdateRequest addressUpdateRequest) {
         Address address = new Address();
         address.setId(addressUpdateRequest.getId());
-        address.setCity(addressUpdateRequest.getCity());
+        address.setCity("");
         address.setCounty(addressUpdateRequest.getCounty());
         address.setStreet(addressUpdateRequest.getStreet());
         return address;
